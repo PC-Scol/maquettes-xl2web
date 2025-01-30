@@ -1,6 +1,6 @@
 # Objet
 
-Interface web pour [https://github.com/PC-Scol/maquettes-xl2json]
+Interface web pour https://github.com/PC-Scol/maquettes-xl2json
 
 # Installation
 
@@ -43,3 +43,7 @@ Une fois lancé, une ou plusieurs lignes apparaissent avec l'URL à atteindre :
 ```
  * Running on http://127.0.0.1:5000
 ```
+
+# Utilisation
+
+![demo](https://github.com/kaisersly/maquettes-xl2web/raw/master/maquettes-xl2web.gif)

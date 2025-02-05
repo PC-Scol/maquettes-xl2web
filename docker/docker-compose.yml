@@ -1,0 +1,6 @@
+services:
+  app:
+    container_name: maquettes-xl2web
+    build: .
+    ports:
+      - 5000:5000

@@ -7,7 +7,7 @@ Interface web pour https://github.com/PC-Scol/maquettes-xl2json
 Télécharger le dépôt :
 
 ```
-git clone https://github.com/kaisersly/maquettes-xl2web
+git clone https://github.com/PC-Scol/maquettes-xl2web
 ```
 
 Télécharger maquettes-xl2json :

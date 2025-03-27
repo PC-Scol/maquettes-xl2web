@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import sys
 from tempfile import NamedTemporaryFile
@@ -80,7 +81,17 @@ def index():
 
 @app.post("/")
 def generate():
-    with NamedTemporaryFile(suffix=".xlsx") as temp_file:
-        request.files["file"].save(temp_file.name)
-        result, error = xl2b64(temp_file.name)
+    temp_dir = None
+    is_win = sys.platform.startswith("win")
+    if is_win:
+        temp_dir = "./tmp"
+        if not os.path.exists(temp_dir):
+            os.mkdir(temp_dir)
+        
+    with NamedTemporaryFile(suffix=".xlsx", dir=temp_dir, delete=False) as temp_file:
+        filename = os.path.relpath(temp_file.name) if is_win else temp_file.name
+        request.files["file"].save(filename)
+        result, error = xl2b64(filename)
+        temp_file.close()
+        os.remove(filename)
     return json.dumps({"result": result, "error": error})
